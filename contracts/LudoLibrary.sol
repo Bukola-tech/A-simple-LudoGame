@@ -6,7 +6,7 @@ library Errors {
     error NotPlayer();
     error InvalidDiceRoll();
     error GameAlreadyWon();
-    
+    error AlreadyJoined(); 
     
 }
 library Events {

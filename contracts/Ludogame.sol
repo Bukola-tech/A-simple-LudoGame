@@ -13,10 +13,13 @@ contract LudoGame {
     address[] public playerList;
     uint public winningPosition = 56;
 
-    function joinGame() public {
-        require(players[msg.sender].position == 0, "Already joined");
+     function joinGame() public {
+        if (players[msg.sender].position != 0) {
+            revert LudoLibrary.AlreadyJoined();
+        }
         players[msg.sender] = Player(0, false);
         playerList.push(msg.sender);
+        emit PlayerJoined(msg.sender);
     }
 
     function rollAndMove() public returns (uint8) {
