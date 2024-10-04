@@ -15,11 +15,11 @@ contract LudoGame {
 
      function joinGame() public {
         if (players[msg.sender].position != 0) {
-            revert LudoLibrary.AlreadyJoined();
+            revert Errors.AlreadyJoined();
         }
         players[msg.sender] = Player(0, false);
         playerList.push(msg.sender);
-        emit PlayerJoined(msg.sender);
+        emit Events.PlayerJoined(msg.sender);
     }
 
     function rollAndMove() public returns (uint8) {

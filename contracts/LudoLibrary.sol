@@ -16,4 +16,5 @@ library Events {
     event DiceRolled(address indexed player, uint8 result);
     event PlayerMoved(address indexed player, uint position);
     event PlayerWon(address indexed player);
+    event PlayerJoined(address indexed player);
 }
